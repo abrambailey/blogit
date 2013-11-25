@@ -46,7 +46,7 @@ module Blogit
     validates :nickname, absence: true
     validates :name, presence: true
     validates :email, presence: true, format: {with: EMAIL_REGEX, allow_blank: true }
-    validates :body, presence: true, length: { minimum: 4, allow_blank: true}
+    validates :body, presence: true, length: { minimum: 4, allow_blank: true}, :uniqueness => {:scope => :email}
     validates :website, format: {with: URL_REGEX, allow_blank: true}
         
   private
